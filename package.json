@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "name": "pokemon",
+=======
+  "name": "pokedex-api",
+>>>>>>> Stashed changes
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +13,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "@apollo/client": "^3.8.0-rc.2",
     "@apollo/experimental-nextjs-app-support": "^0.4.3",
     "eslint": "8.47.0",
@@ -18,5 +23,21 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.66.1"
+=======
+    "next": "16.4.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+>>>>>>> Stashed changes
   }
 }
