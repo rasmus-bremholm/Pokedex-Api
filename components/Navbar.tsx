@@ -1,8 +1,8 @@
 export default function Navbar() {
 	return (
-		<nav className='bg-background'>
+		<nav className='bg-background flex items-center px-4'>
 			<div>
-				<h1>Pokedex</h1>
+				<p className='text-3xl'>Pokedex</p>
 			</div>
 			<div>{/* Switcher component here */}</div>
 			<div>{/* Search component here */}</div>

@@ -1,5 +1,6 @@
 import { getPokemonList } from "@/lib/utils/getPokemonList";
 import SelectionGrid from "./SelectionGrid";
+import SelectionGridPagination from "@/components/SelectionPagination";
 import { Pokemon } from "@/types/pokemonList";
 import type { SearchParams } from "@/types/searchParams";
 import { itemsPerPage } from "@/consts";
@@ -12,10 +13,12 @@ export default async function Selector({ searchParams }: { searchParams: SearchP
 	const pokemonList: Pokemon[] = await getPokemonList();
 	const start = (currentPage - 1) * itemsPerPage;
 	const pageList = pokemonList.slice(start, start + itemsPerPage);
+	const totalPages = Math.ceil(pokemonList.length / itemsPerPage);
 
 	return (
-		<nav className='bg-background'>
+		<div className='bg-background'>
 			<SelectionGrid pokemonList={pageList} page={currentPage} selectedId={selectedId} />
-		</nav>
+			<SelectionGridPagination page={currentPage} selectedId={selectedId} totalPages={totalPages} />
+		</div>
 	);
 }

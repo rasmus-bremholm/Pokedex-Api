@@ -34,3 +34,11 @@
 body {
 	@apply bg-background text-foreground;
 }
+
+h1 {
+	@apply font-sans text-5xl;
+}
+
+@utility btn {
+	@apply flex min-h-11 items-center justify-center rounded-xl border bg-surface border-muted p-4 hover:bg-divider transition-colors duration-150;
+}
