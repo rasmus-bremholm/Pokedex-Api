@@ -1,23 +1,25 @@
-"use client";
-
-import { itemsPerPage } from "@/consts";
 import { Pokemon } from "@/types/pokemonList";
-import { useState } from "react";
+import Link from "next/link";
+import { createHref } from "@/lib/utils/createHrefs";
 
-export default function SelectionGrid({ pokemonList }: { pokemonList: Pokemon[] }) {
-	const [selectedPokemon, setSelectedPokemon] = useState<number | null>(null);
-	const [page, setPage] = useState(0);
+interface SelectionGridProps {
+	pokemonList: Pokemon[];
+	page: number;
+	selectedId: number | null;
+}
 
-	console.log(selectedPokemon);
-
-	const start = (page - 1) * itemsPerPage;
-	const pageList = pokemonList.slice(start, start + itemsPerPage);
-
+export default function SelectionGrid({ pokemonList, page, selectedId }: SelectionGridProps) {
 	return (
 		<ul className='grid grid-cols-7 gap-4'>
 			{pokemonList.map((p) => (
-				<li onClick={() => setSelectedPokemon(p.id)} key={p.id}>
-					{p.name}
+				<li key={p.id}>
+					<Link
+						aria-current={p.id === selectedId ? "true" : undefined}
+						className='block aria-[current=true]:ring-2 aria-[current=true]:ring-primary'
+						scroll={false}
+						href={createHref(page, p.id)}>
+						{p.name}
+					</Link>
 				</li>
 			))}
 		</ul>
