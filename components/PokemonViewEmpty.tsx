@@ -15,12 +15,12 @@ export default function PokemonViewEmpty() {
 						))}
 					</div>
 				</div>
-				<Link className='flex items-center justify-center gap-2.5 min-h-11 px-4 border border-divider rounded-xl self-start' href={""}>
+				<Link className='btn self-start' href={""}>
 					Surprise Me
 				</Link>
 			</div>
 			<div className='flex flex-1 flex-col items-center justify-center gap-4 w-full'>
-				<div className='w-95 aspect-square rounded-full bg-[#e8e8ec] border border-dashed flex items-center justify-center'>?</div>
+				<div className='w-95 aspect-square rounded-full bg-[#e8e8ec] border border-dashed border-dividerflex items-center justify-center'>?</div>
 			</div>
 		</div>
 	);

@@ -42,5 +42,5 @@ h1 {
 }
 
 @utility btn {
-	@apply flex min-h-11 items-center justify-center rounded-xl border bg-surface border-muted p-4 hover:bg-divider transition-colors duration-150;
+	@apply flex min-h-11 items-center justify-center rounded-xl border bg-surface border-divider p-4 not-aria-disabled:hover:bg-divider/10 aria-disabled:cursor-not-allowed transition-colors duration-150;
 }

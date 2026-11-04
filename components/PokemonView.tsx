@@ -7,7 +7,7 @@ import PokemonViewEmpty from "@/components/PokemonViewEmpty";
 
 function InfoBox({ label, value }: { label: string; value: string }) {
 	return (
-		<div className='flex flex-col border border-divider/30 rounded-xl px-3.5 py-2.5'>
+		<div className='flex flex-col border border-divider rounded-xl px-3.5 py-2.5'>
 			<p className='font-mono text-sm'>{label}</p>
 			<p className='font-mono text-lg'>{value}</p>
 		</div>

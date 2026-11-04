@@ -17,7 +17,7 @@ export default function SelectionGridCard({ id, name, href, isSelected }: Select
 			scroll={false}
 			href={href}
 			className='transition duration-200 ease-out flex flex-col items-center justify-center min-h-35
-			 bg-surface border border-divider rounded-2xl
+			 bg-surface hover:bg-divider/5 border border-divider rounded-2xl
 aria-[current=true]:border-primary
 aria-[current=true]:ring-2 aria-[current=true]:ring-primary'>
 			<Image src={`${imageBaseUrl}${id}.png`} width={64} height={64} alt={`${name} thumbnail`} loading='eager' />
