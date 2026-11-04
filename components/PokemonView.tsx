@@ -3,6 +3,7 @@ import { SearchParams } from "@/types/searchParams";
 import Image from "next/image";
 import React from "react";
 import StatBars from "./StatBars";
+import PokemonViewEmpty from "@/components/PokemonViewEmpty";
 
 function InfoBox({ label, value }: { label: string; value: string }) {
 	return (
@@ -17,13 +18,13 @@ export default async function PokemonView({ searchParams }: { searchParams: Sear
 	const { selected } = await searchParams;
 	const selectedId = selected ? Number(selected) : null;
 
-	if (!selectedId) return <div></div>; //empty state
+	if (!selectedId) return <PokemonViewEmpty />; //empty state
 
 	const details = await getPokemonDetails(selectedId);
 
 	return (
 		<div className='flex p-4 gap-10'>
-			<div className='flex flex-1 flex-col gap-4'>
+			<div className='flex flex-1 flex-col gap-2'>
 				<p>#{details.id}</p>
 				<h1>{details.name}</h1>
 				<div className='flex gap-2'>
@@ -46,7 +47,7 @@ export default async function PokemonView({ searchParams }: { searchParams: Sear
 					<StatBars key={details.id} stats={details.stats} color={`var(--color-type-${details.types[0]})`} />
 				</div>
 			</div>
-			<div className='flex flex-1 flex-col items-center gap-4 w-full'>
+			<div className='flex flex-1 flex-col items-center justify-center gap-4 w-full'>
 				<Image src={details.image} width={380} height={380} alt={details.name} />
 			</div>
 		</div>
