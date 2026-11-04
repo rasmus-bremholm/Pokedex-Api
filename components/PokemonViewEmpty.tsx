@@ -1,6 +1,13 @@
 import Link from "next/link";
+import { createHref } from "@/lib/utils/createHrefs";
+import { itemsPerPage } from "@/consts";
+import { connection } from "next/server";
+import { getRandomPokemonId } from "@/lib/utils/getRandomPokemonId";
 
-export default function PokemonViewEmpty() {
+export default async function PokemonViewEmpty() {
+	await connection();
+	const randomId = getRandomPokemonId();
+
 	return (
 		<div className='flex h-full p-4 gap-10'>
 			<div className='flex flex-1 flex-col max-w-95  gap-2'>
@@ -15,12 +22,12 @@ export default function PokemonViewEmpty() {
 						))}
 					</div>
 				</div>
-				<Link className='btn self-start' href={""}>
+				<Link className='btn self-start' href={createHref(Math.ceil(randomId / itemsPerPage), randomId)}>
 					Surprise Me
 				</Link>
 			</div>
 			<div className='flex flex-1 flex-col items-center justify-center gap-4 w-full'>
-				<div className='w-95 aspect-square rounded-full bg-[#e8e8ec] border border-dashed border-dividerflex items-center justify-center'>?</div>
+				<div className='w-95 aspect-square rounded-full bg-[#e8e8ec] border border-dashed border-divider flex items-center justify-center'>?</div>
 			</div>
 		</div>
 	);
