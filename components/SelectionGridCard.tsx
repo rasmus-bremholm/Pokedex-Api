@@ -20,7 +20,7 @@ export default function SelectionGridCard({ id, name, href, isSelected }: Select
 			 bg-surface border border-divider rounded-2xl
 aria-[current=true]:border-primary
 aria-[current=true]:ring-2 aria-[current=true]:ring-primary'>
-			<Image src={`${imageBaseUrl}${id}.png`} width={64} height={64} alt={`${name} thumbnail`} />
+			<Image src={`${imageBaseUrl}${id}.png`} width={64} height={64} alt={`${name} thumbnail`} loading='eager' />
 			<p className='id'>#{id}</p>
 			<p className='name'>{name}</p>
 		</Link>

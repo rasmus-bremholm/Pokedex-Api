@@ -10,7 +10,9 @@
 	--color-foreground: #385b73;
 	--color-muted: #94a5b1;
 	--color-primary: #ddb141;
+}
 
+@theme static {
 	--color-type-normal: #a8a878;
 	--color-type-fire: #f08030;
 	--color-type-water: #6890f0;
