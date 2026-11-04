@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import ThemeRegistry from "./utils/theme/ThemeRegistry";
-import Navbar from "./components/navbar/Navbar";
-import { Container } from "@mui/material";
+import { Geist, Geist_Mono, Silkscreen } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
+const silkScreen = Silkscreen({
+	variable: "--font-silkscreen",
 	subsets: ["latin"],
+	weight: ["400", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -16,21 +16,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: "Pokedex",
-	description: "A Next.js Pokedex application",
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
-		<html lang='en' className={`${geistSans.variable} ${geistMono.variable}`}>
-			<body>
+		<html lang='en' className={`${silkScreen.variable} ${geistMono.variable} h-full antialiased`}>
+			<body className='min-h-full grid grid-cols-1 grid-rows-[78px_minmax(480px,1fr)_482px] font-sans bg-background'>
 				<Navbar />
-				<ThemeRegistry>
-					<Container maxWidth='xl'>{children}</Container>
-				</ThemeRegistry>
+				{children}
 			</body>
 		</html>
 	);

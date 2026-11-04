@@ -2,10 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
 	/* config options here */
-	reactCompiler: true,
 	cacheComponents: true,
+	partialPrefetching: true,
+	reactCompiler: true,
 	images: {
-		remotePatterns: [{ hostname: "raw.githubusercontent.com" }],
+		remotePatterns: [new URL("https://raw.githubusercontent.com/PokeAPI/sprites/**")],
+	},
+	turbopack: {
+		rules: {
+			"*.css": {
+				loaders: ["@tailwindcss/turbopack"],
+				as: "*.css",
+			},
+		},
 	},
 };
 

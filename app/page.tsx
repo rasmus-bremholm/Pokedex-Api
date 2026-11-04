@@ -1,15 +1,22 @@
-import Typography from "@mui/material/Typography";
-import Gallery from "./components/gallery/Gallery";
-import { getPokemonList } from "@/app/utils/actions/getPokemonList";
-import { itemsPerPage } from "@/app/utils/consts";
+import { Suspense } from "react";
+import Selector from "@/components/Selector";
+import type { SearchParams } from "@/types/searchParams";
+import PokemonView from "@/components/PokemonView";
+// Skeletons
+import PokemonViewSkeleton from "@/components/skeletons/PokemonViewSkeleton";
+import SelectorSkelton from "@/components/skeletons/SelectorSkeleton";
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-	const pokemonList = await getPokemonList();
-	const { page } = await searchParams;
-	const currentPage = Number(page) ?? 1;
-
-	const start = (currentPage - 1) * itemsPerPage;
-	const paginatedPokemonList = pokemonList.results.slice(start, start + itemsPerPage);
-
-	return <Gallery pokemonList={paginatedPokemonList} />;
+export default function Home({ searchParams }: { searchParams: SearchParams }) {
+	return (
+		<>
+			<main className='bg-surface'>
+				<Suspense fallback={<PokemonViewSkeleton />}>
+					<PokemonView searchParams={searchParams} />
+				</Suspense>
+			</main>
+			<Suspense fallback={<SelectorSkelton />}>
+				<Selector searchParams={searchParams} />
+			</Suspense>
+		</>
+	);
 }

@@ -1,3 +1,46 @@
-*, *::before, *::after {
-  box-sizing: border-box;
+@import "tailwindcss";
+
+@theme {
+	--font-sans: var(--font-silkscreen), sans-serif;
+	--font-mono: var(--font-geist-mono);
+
+	--color-background: #dcdce0;
+	--color-surface: #f2f2f2;
+	--color-divider: #9e9bba;
+	--color-foreground: #385b73;
+	--color-muted: #94a5b1;
+	--color-primary: #ddb141;
+}
+
+@theme static {
+	--color-type-normal: #a8a878;
+	--color-type-fire: #f08030;
+	--color-type-water: #6890f0;
+	--color-type-grass: #78c850;
+	--color-type-electric: #f8d030;
+	--color-type-ice: #98d8d8;
+	--color-type-fighting: #c03028;
+	--color-type-poison: #a040a0;
+	--color-type-ground: #e0c068;
+	--color-type-flying: #a890f0;
+	--color-type-psychic: #f85888;
+	--color-type-bug: #a8b820;
+	--color-type-rock: #b8a038;
+	--color-type-ghost: #705898;
+	--color-type-dragon: #7038f8;
+	--color-type-dark: #705848;
+	--color-type-steel: #b8b8d0;
+	--color-type-fairy: #ee99ac;
+}
+
+body {
+	@apply bg-background text-foreground;
+}
+
+h1 {
+	@apply font-sans text-5xl;
+}
+
+@utility btn {
+	@apply flex min-h-11 items-center justify-center rounded-xl border bg-surface border-divider p-4 not-aria-disabled:hover:bg-divider/10 aria-disabled:cursor-not-allowed transition-colors duration-150;
 }
