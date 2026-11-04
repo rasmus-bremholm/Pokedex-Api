@@ -3,13 +3,14 @@ import { createHref } from "@/lib/utils/createHrefs";
 import { itemsPerPage } from "@/consts";
 import { connection } from "next/server";
 import { getRandomPokemonId } from "@/lib/utils/getRandomPokemonId";
+import { Shuffle } from "pixelarticons/react";
 
 export default async function PokemonViewEmpty() {
 	await connection();
 	const randomId = getRandomPokemonId();
 
 	return (
-		<div className='flex h-full p-4 gap-10'>
+		<div className='flex h-full py-4 gap-10'>
 			<div className='flex flex-1 flex-col max-w-95  gap-2'>
 				<p># ???</p>
 				<h1>PICK A POKEMON</h1>
@@ -23,6 +24,7 @@ export default async function PokemonViewEmpty() {
 					</div>
 				</div>
 				<Link className='btn self-start' href={createHref(Math.ceil(randomId / itemsPerPage), randomId)}>
+					<Shuffle />
 					Surprise Me
 				</Link>
 			</div>
