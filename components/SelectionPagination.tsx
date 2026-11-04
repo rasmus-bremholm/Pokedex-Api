@@ -1,5 +1,6 @@
 import { createHref } from "@/lib/utils/createHrefs";
 import Link from "next/link";
+import { ChevronRight, ChevronLeft } from "pixelarticons/react";
 
 interface SelectionPaginationProps {
 	page: number;
@@ -12,18 +13,18 @@ export default function SelectionPagination({ page, totalPages, selectedId }: Se
 		<nav aria-label='Pagination' className='flex justify-center items-center gap-4'>
 			{page > 1 ?
 				<Link className='btn' href={createHref(page - 1, selectedId)} scroll={false}>
-					Prev
+					<ChevronLeft /> Prev
 				</Link>
 			:	<span className='btn aria-disabled:opacity-50' aria-disabled='true'>
-					Prev
+					<ChevronLeft /> Prev
 				</span>
 			}
 			{page < totalPages ?
 				<Link className='btn' href={createHref(page + 1, selectedId)} scroll={false}>
-					Next
+					Next <ChevronRight />
 				</Link>
 			:	<span className='btn aria-disabled:opacity-50' aria-disabled='true'>
-					Next
+					Next <ChevronRight />
 				</span>
 			}
 		</nav>

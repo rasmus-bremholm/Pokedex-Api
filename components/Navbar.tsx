@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ModeToggle from "@/components/ModeToggle";
+
 export default function Navbar() {
 	return (
 		<nav className='bg-background flex items-center px-4'>
@@ -7,7 +9,9 @@ export default function Navbar() {
 					<h1 className='text-xl'>Pokedex</h1>
 				</Link>
 			</div>
-			<div>{/* Switcher component here */}</div>
+			<div>
+				<ModeToggle />
+			</div>
 			<div>{/* Search component here */}</div>
 		</nav>
 	);
