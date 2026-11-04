@@ -9,7 +9,7 @@ interface SelectionPaginationProps {
 
 export default function SelectionPagination({ page, totalPages, selectedId }: SelectionPaginationProps) {
 	return (
-		<nav aria-label='Pagination' className='flex justify-center items-center py-4 gap-4'>
+		<nav aria-label='Pagination' className='flex justify-center items-center gap-4'>
 			{page > 1 ?
 				<Link className='btn' href={createHref(page - 1, selectedId)} scroll={false}>
 					Prev

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
 		<html lang='en' className={`${silkScreen.variable} ${geistMono.variable} h-full antialiased`}>
-			<body className='min-h-full grid grid-cols-1 grid-rows-[78px_auto_482px] font-sans bg-background'>
+			<body className='min-h-full grid grid-cols-1 grid-rows-[78px_minmax(480px,1fr)_482px] font-sans bg-background'>
 				<Navbar />
 				{children}
 			</body>
