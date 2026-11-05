@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { imageBaseUrl } from "@/consts/index";
 import Link from "next/link";
-import { createHref } from "@/lib/utils/createHrefs";
+
 
 interface SelectionGridCardProps {
 	id: number;

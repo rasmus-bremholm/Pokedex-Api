@@ -13,7 +13,7 @@ export default async function PokemonViewEmpty() {
 		<div className='flex h-full py-4 gap-10'>
 			<div className='flex flex-1 flex-col max-w-95  gap-2'>
 				<p># ???</p>
-				<h1>PICK A POKEMON</h1>
+				<h2 className='text-4xl'>PICK A POKEMON</h2>
 				<p className=' font-mono text-sm'>Chose one from the grid below, or search by name or number</p>
 				<div className='flex flex-col gap-4'>
 					<h3 className='capitalize'>Base Stats</h3>

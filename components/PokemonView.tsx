@@ -1,9 +1,13 @@
 import { getPokemonDetails } from "@/lib/utils/getPokemonDetails";
+import { createHref } from "@/lib/utils/createHrefs";
+import { imageBaseUrl, itemsPerPage } from "@/consts/index";
 import { SearchParams } from "@/types/searchParams";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import StatBars from "./StatBars";
 import PokemonViewEmpty from "@/components/PokemonViewEmpty";
+import { getEvolutionChain } from "@/lib/utils/getEvolutionChain";
 
 function InfoBox({ label, value }: { label: string; value: string }) {
 	return (
@@ -20,13 +24,13 @@ export default async function PokemonView({ searchParams }: { searchParams: Sear
 
 	if (!selectedId) return <PokemonViewEmpty />; //empty state
 
-	const details = await getPokemonDetails(selectedId);
+	const [details, evolution] = await Promise.all([getPokemonDetails(selectedId), getEvolutionChain(selectedId)]);
 
 	return (
 		<div className='flex p-4 gap-10'>
 			<div className='flex flex-1 flex-col gap-2'>
 				<p>#{details.id}</p>
-				<h1>{details.name}</h1>
+				<h2 className='text-4xl'>{details.name}</h2>
 				<div className='flex gap-2'>
 					{details.types.map((t) => (
 						<span
@@ -38,7 +42,6 @@ export default async function PokemonView({ searchParams }: { searchParams: Sear
 					))}
 				</div>
 				<div className='grid grid-cols-2 gap-4 max-w-[320px]'>
-					{/* I should probably make components out of these. Break these out later */}
 					<InfoBox label='Height' value={`${details.height} m`} />
 					<InfoBox label='Weight' value={`${details.weight} kg`} />
 				</div>
@@ -49,6 +52,18 @@ export default async function PokemonView({ searchParams }: { searchParams: Sear
 			</div>
 			<div className='flex flex-1 flex-col items-center justify-center gap-4 w-full'>
 				<Image src={details.image} width={380} height={380} alt={details.name} />
+				<div className="flex gap-6">
+					{evolution.map((stage, i) => (
+						<div key={i} className='flex flex-col gap-2'>
+							{stage.map((entry) => (
+								<Link className='flex flex-col items-center border border-divider rounded-xl p-2' href={createHref(Math.ceil(entry.id / itemsPerPage), entry.id)} key={entry.id}>
+									<Image src={`${imageBaseUrl}${entry.id}.png`} width={48} height={48} alt='' />
+									<p>{entry.name}</p>
+								</Link>
+							))}
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 	);
