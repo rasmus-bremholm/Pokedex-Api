@@ -27,10 +27,10 @@ export default async function PokemonView({ searchParams }: { searchParams: Sear
 	const [details, evolution] = await Promise.all([getPokemonDetails(selectedId), getEvolutionChain(selectedId)]);
 
 	return (
-		<div className='flex flex-col-reverse md:flex-row p-4 gap-6 md:gap-10'>
+		<div className='flex p-4 gap-10'>
 			<div className='flex flex-1 flex-col gap-2'>
 				<p>#{details.id}</p>
-				<h2 className='text-3xl md:text-4xl'>{details.name}</h2>
+				<h2 className='text-4xl'>{details.name}</h2>
 				<div className='flex gap-2'>
 					{details.types.map((t) => (
 						<span
@@ -51,8 +51,8 @@ export default async function PokemonView({ searchParams }: { searchParams: Sear
 				</div>
 			</div>
 			<div className='flex flex-1 flex-col items-center justify-center gap-4 w-full'>
-				<Image src={details.image} width={380} height={380} alt={details.name} className='w-full max-w-[380px] h-auto' />
-				<div className="flex flex-wrap justify-center gap-6">
+				<Image src={details.image} width={380} height={380} alt={details.name} />
+				<div className="flex gap-6">
 					{evolution.map((stage, i) => (
 						<div key={i} className='flex flex-col gap-2'>
 							{stage.map((entry) => (

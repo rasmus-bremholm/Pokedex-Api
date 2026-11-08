@@ -2,7 +2,7 @@ const block = "rounded bg-divider/20";
 
 export default function PokemonViewSkeleton() {
 	return (
-		<div className='flex flex-col-reverse md:flex-row animate-pulse gap-6 md:gap-10 p-4'>
+		<div className='flex animate-pulse gap-10 p-4'>
 			<div className='flex flex-1 flex-col gap-4'>
 				<div className={`h-6 w-12 ${block}`} />
 				<div className={`h-12 w-64 ${block}`} />
@@ -24,7 +24,7 @@ export default function PokemonViewSkeleton() {
 				</div>
 			</div>
 			<div className='flex flex-1 flex-col items-center gap-4'>
-				<div className='aspect-square w-full max-w-[380px] rounded-full bg-divider/20' />
+				<div className='aspect-square w-[380px] rounded-full bg-divider/20' />
 			</div>
 		</div>
 	);
