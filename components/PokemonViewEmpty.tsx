@@ -10,10 +10,10 @@ export default async function PokemonViewEmpty() {
 	const randomId = getRandomPokemonId();
 
 	return (
-		<div className='flex h-full py-4 gap-10'>
+		<div className='flex flex-col-reverse md:flex-row h-full py-4 gap-6 md:gap-10'>
 			<div className='flex flex-1 flex-col max-w-95  gap-2'>
 				<p># ???</p>
-				<h2 className='text-4xl'>PICK A POKEMON</h2>
+				<h2 className='text-3xl md:text-4xl'>PICK A POKEMON</h2>
 				<p className=' font-mono text-sm'>Chose one from the grid below, or search by name or number</p>
 				<div className='flex flex-col gap-4'>
 					<h3 className='capitalize'>Base Stats</h3>
@@ -29,7 +29,7 @@ export default async function PokemonViewEmpty() {
 				</Link>
 			</div>
 			<div className='flex flex-1 flex-col items-center justify-center gap-4 w-full'>
-				<div className='w-95 aspect-square rounded-full bg-[#e8e8ec] border border-dashed border-divider flex items-center justify-center'>?</div>
+				<div className='w-full max-w-95 aspect-square rounded-full bg-[#e8e8ec] border border-dashed border-divider flex items-center justify-center'>?</div>
 			</div>
 		</div>
 	);

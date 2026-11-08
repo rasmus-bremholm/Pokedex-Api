@@ -9,7 +9,7 @@ import SelectorSkelton from "@/components/skeletons/SelectorSkeleton";
 export default function Home({ searchParams }: { searchParams: SearchParams }) {
 	return (
 		<>
-			<main className='bg-surface grid px-20'>
+			<main className='bg-surface grid px-4 md:px-20'>
 				<Suspense fallback={<PokemonViewSkeleton />}>
 					<PokemonView searchParams={searchParams} />
 				</Suspense>

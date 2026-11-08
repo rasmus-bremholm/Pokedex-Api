@@ -11,7 +11,7 @@ interface SelectionGridProps {
 
 export default function SelectionGrid({ pokemonList, page, selectedId }: SelectionGridProps) {
 	return (
-		<ul className='grid grid-cols-[repeat(7,8.75rem)] justify-center gap-2 p-2'>
+		<ul className='grid grid-cols-3 md:grid-cols-[repeat(7,8.75rem)] justify-center gap-2 p-2'>
 			{pokemonList.map((p) => (
 				<li key={p.id}>
 					<SelectionGridCard id={p.id} name={p.name} href={createHref(page, p.id)} isSelected={p.id === selectedId} />
