@@ -12,3 +12,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 - Desktop: 1920x1080px
 - Mobile: 448x867 (dpr: 2.25)
+
+
+## Notes from 4 year old critic.
+- Base stats arnt intresting for a 4 year old. Collapse them.
+- Pokemon should be "swipable"
+- Grid should be swipable on mobile, next buttons are bad.
+- Its easy to accidentally click stuff on mobile, and having childs hands.
+- Its annoying to have to scroll down to the grid when viewing a pokemon.
