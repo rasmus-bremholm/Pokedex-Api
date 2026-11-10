@@ -3,6 +3,7 @@
 @theme {
 	--font-sans: var(--font-silkscreen), sans-serif;
 	--font-mono: var(--font-geist-mono);
+	--font-body: var(--font-geist), sans-serif;
 
 	--color-background: #dcdce0;
 	--color-surface: #f2f2f2;
@@ -10,6 +11,10 @@
 	--color-foreground: #385b73;
 	--color-muted: #94a5b1;
 	--color-primary: #ddb141;
+	--color-ink-secondary: #4c5f6d;
+	--color-card: #ebebef;
+	--color-skeleton: #e1e1e6;
+	--color-rule: #c4c3d3;
 }
 
 @theme static {

@@ -1,1 +1,1 @@
-export type SearchParams = Promise<{ page?: string; selected?: string }>;
+export type SearchParams = Promise<{ selected?: string }>;

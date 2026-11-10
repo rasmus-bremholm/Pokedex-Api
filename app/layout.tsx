@@ -9,6 +9,11 @@ const silkScreen = Silkscreen({
 	weight: ["400", "700"],
 });
 
+const geist = Geist({
+	variable: "--font-geist",
+	subsets: ["latin"],
+});
+
 const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
 	subsets: ["latin"],
@@ -20,8 +25,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
-		<html lang='en' className={`${silkScreen.variable} ${geistMono.variable} h-full antialiased`}>
-			<body className='min-h-full grid grid-cols-1 grid-rows-[78px_minmax(480px,1fr)_482px] font-sans bg-background'>
+		<html lang='en' className={`${silkScreen.variable} ${geist.variable} ${geistMono.variable} h-full antialiased`}>
+			<body className='flex h-dvh flex-col overflow-hidden font-sans bg-background'>
 				<Navbar />
 				{children}
 			</body>
