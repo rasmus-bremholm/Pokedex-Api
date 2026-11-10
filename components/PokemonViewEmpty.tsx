@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { createHref } from "@/lib/utils/createHrefs";
-import { itemsPerPage } from "@/consts";
 import { connection } from "next/server";
 import { getRandomPokemonId } from "@/lib/utils/getRandomPokemonId";
 import { Shuffle } from "pixelarticons/react";
@@ -10,27 +9,20 @@ export default async function PokemonViewEmpty() {
 	const randomId = getRandomPokemonId();
 
 	return (
-		<div className='flex h-full py-4 gap-10'>
-			<div className='flex flex-1 flex-col max-w-95  gap-2'>
-				<p># ???</p>
-				<h2 className='text-4xl'>PICK A POKEMON</h2>
-				<p className=' font-mono text-sm'>Chose one from the grid below, or search by name or number</p>
-				<div className='flex flex-col gap-4'>
-					<h3 className='capitalize'>Base Stats</h3>
-					<div className='flex max-w-105 flex-col gap-2.5'>
-						{Array.from({ length: 6 }, (_, i) => (
-							<div key={i} className='bg-divider/20 h-px m-2' />
-						))}
-					</div>
+		<div className='flex h-full flex-col items-center gap-3 px-6 py-5 text-center'>
+			<h2 className='text-[30px] leading-none uppercase'>Pick a Pokémon</h2>
+			<p className='font-body text-ink-secondary'>Tap one below, or swipe them along.</p>
+			<div className='flex min-h-0 flex-1 items-center'>
+				<div
+					aria-hidden='true'
+					className='grid size-[min(236px,30dvh)] place-items-center rounded-full border-2 border-dashed border-divider bg-card text-7xl text-divider/60 md:size-[min(420px,40dvh)]'>
+					?
 				</div>
-				<Link className='btn self-start' href={createHref(Math.ceil(randomId / itemsPerPage), randomId)}>
-					<Shuffle />
-					Surprise Me
-				</Link>
 			</div>
-			<div className='flex flex-1 flex-col items-center justify-center gap-4 w-full'>
-				<div className='w-95 aspect-square rounded-full bg-[#e8e8ec] border border-dashed border-divider flex items-center justify-center'>?</div>
-			</div>
+			<Link className='btn gap-3 rounded-full border-primary bg-primary px-8 text-xs uppercase text-[#1f2d38]' href={createHref(randomId)} scroll={false}>
+				<Shuffle aria-hidden='true' />
+				Surprise me
+			</Link>
 		</div>
 	);
 }

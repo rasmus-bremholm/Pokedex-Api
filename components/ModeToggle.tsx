@@ -19,7 +19,7 @@ export default function ModeToggle() {
 					key={m.href}
 					href={m.href}
 					aria-current={i === activeIndex ? "page" : undefined}
-					className='relative z-10 px-6 py-3 text-center transition-colors duration-300 aria-[current=page]:text-surface'>
+					className='relative z-10 px-6 py-3 text-xs text-center transition-colors duration-300 aria-[current=page]:text-surface'>
 					{m.label}
 				</Link>
 			))}
